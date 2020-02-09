@@ -1,28 +1,27 @@
 <template>
   <div>
     <div id="nav"></div>
-    <div v-for="event in pullRequest.events" :key="event">
-      <p>{{ event.date }}</p>
-      <p>{{ event.etype }}</p>
-      <p>{{ event.title }}</p>
-      <p>{{ event.description }}</p>
-      <br />
-    </div>
+    <Timeline v-if="!isFetching" v-bind:pullRequest="pullRequest" />
   </div>
 </template>
 
 <script>
 import pullRequestApi from "@/api/pullRequestApi";
+import Timeline from "@/components/Timeline";
 export default {
   data() {
     return {
-      pullRequest: {}
+      pullRequest: {},
+      isFetching: true
     };
   },
+  components: {
+    Timeline
+  },
   created() {
-    pullRequestApi.pullRequest("13362728", "83").then(r => {
-      console.log(r);
+    pullRequestApi.pullRequest("13362728", "73").then(r => {
       this.pullRequest = r.data;
+      this.isFetching = false;
     });
   }
 };
