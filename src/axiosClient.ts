@@ -1,6 +1,6 @@
 import axios from "axios";
 
-let axiosClient = axios.create({
+const axiosClient = axios.create({
   baseURL: `http://localhost:3000`,
   withCredentials: false,
   headers: {
@@ -13,6 +13,7 @@ let axiosClient = axios.create({
 axiosClient.interceptors.request.use(config => {
   const token = localStorage.getItem("token");
   config.headers.Authorization = token ? `Bearer ${token}` : "";
+  config.headers["Access-Control-Allow-Origin"] = "*";
   return config;
 });
 
