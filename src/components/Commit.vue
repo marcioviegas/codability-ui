@@ -1,5 +1,5 @@
 <template>
-  <li class="tl-item">
+  <li class="tl-item commit">
     <div class="timestamp">
       {{ new Date(commit.date).toLocaleString() }}
       {{ commit.author }}

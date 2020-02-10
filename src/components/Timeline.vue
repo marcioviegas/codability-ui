@@ -46,7 +46,8 @@ $primary: #00d1b2;
   position: relative;
 }
 .history-tl-container ul.tl li:last-child {
-  border-left: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 ul.tl li .item-detail {
   color: rgba(0, 0, 0, 0.5);
@@ -58,14 +59,13 @@ ul.tl li .timestamp {
 }
 .history-tl-container ul.tl li::before {
   position: absolute;
-  left: -10px;
+  left: -5px;
   top: 0px;
   content: " ";
-  border: 8px solid rgba(255, 255, 255, 0.74);
   border-radius: 500%;
   background: $primary;
-  height: 20px;
-  width: 20px;
+  height: 10px;
+  width: 10px;
   transition: all 500ms ease-in-out;
 }
 </style>
