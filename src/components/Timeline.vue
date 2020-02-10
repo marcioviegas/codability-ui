@@ -1,31 +1,34 @@
 <template>
   <div class="history-tl-container">
     <ul class="tl">
-      <li class="tl-item" v-for="event in pullRequest.events" :key="event.date">
-        <div class="timestamp">
-          {{ new Date(event.date).toLocaleString() }}
-        </div>
-        <div class="item-detail">
-          {{ event.etype.toLowerCase() }} from {{ event.author }}
-        </div>
-        <div class="item-title" v-if="event.title !== 'NO_TITLE'">
-          {{ event.title }}
-        </div>
-        <div class="item-title" v-else>
-          {{ event.description }}
-        </div>
-      </li>
+      <template v-for="event in pullRequest.events">
+        <Commit
+          v-if="event.type === 0"
+          v-bind:commit="event"
+          v-bind:key="event.date"
+        />
+        <Discussion v-else v-bind:discussion="event" v-bind:key="event.date" />
+      </template>
     </ul>
   </div>
 </template>
 
 <script>
+import Commit from "@/components/Commit.vue";
+import Discussion from "@/components/Discussion.vue";
 export default {
   props: {
     pullRequest: {
       type: Object,
       required: true
     }
+  },
+  components: {
+    Commit,
+    Discussion
+  },
+  created() {
+    console.log(this.pullRequest);
   }
 };
 </script>

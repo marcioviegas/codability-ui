@@ -22,6 +22,7 @@ export default {
     pullRequestApi.pullRequest("13362728", "73").then(r => {
       this.pullRequest = r.data;
       this.isFetching = false;
+      console.log(this.pullRequest);
     });
   }
 };
