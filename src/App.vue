@@ -3,9 +3,14 @@
     <div class="container">
       <div class="columns">
         <div class="column is-3">
-          <ul>
-            <li>Menu</li>
-          </ul>
+          <div>
+            <router-link
+              :to="{
+                name: 'ListPullRequest'
+              }"
+              >Menu</router-link
+            >
+          </div>
         </div>
         <div class="column is-9">
           <router-view />

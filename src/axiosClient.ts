@@ -1,4 +1,9 @@
 import axios from "axios";
+import { setupCache } from "axios-cache-adapter";
+
+const cache = setupCache({
+  maxAge: 15 * 60 * 1000
+});
 
 const axiosClient = axios.create({
   baseURL: `http://localhost:3000`,
@@ -7,7 +12,8 @@ const axiosClient = axios.create({
     Accept: "application/json",
     "Content-Type": "application/json"
   },
-  timeout: 10000
+  timeout: 10000,
+  adapter: cache.adapter
 });
 
 axiosClient.interceptors.request.use(config => {

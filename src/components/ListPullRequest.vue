@@ -1,21 +1,24 @@
 <template>
-  <div class="history-tl-container">
+  <div class="">
     <template v-for="pullRequest in pullRequests">
-      <div v-bind:key="pullRequest.id">
-        <router-link
-          :to="{
-            name: 'PullRequest',
-            params: { pullRequestId: pullRequest.id }
-          }"
-          >{{ pullRequest.id }} - {{ pullRequest.title }}</router-link
-        >
-      </div>
+      <router-link
+        v-bind:key="pullRequest.id"
+        :to="{ name: 'PullRequest', params: { pullRequestId: pullRequest.id } }"
+      >
+        <PullRequest
+          v-bind:key="pullRequest.id"
+          v-bind:pullRequest="pullRequest"
+      /></router-link>
     </template>
-  </div> </template
->:to="{ name: 'user', params: { userId: 123 }}"
+  </div>
+</template>
 
 <script>
+import PullRequest from "@/components/PullRequest";
 export default {
+  components: {
+    PullRequest
+  },
   props: {
     pullRequests: {
       type: Array,

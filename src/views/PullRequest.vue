@@ -1,13 +1,14 @@
 <template>
-  <div>
-    <div id="nav"></div>
-    <Timeline v-if="!isFetching" v-bind:pullRequest="pullRequest" />
+  <div v-if="!isFetching">
+    <PullRequest v-bind:pullRequest="pullRequest" />
+    <Timeline v-bind:pullRequest="pullRequest" />
   </div>
 </template>
 
 <script>
 import pullRequestApi from "@/api/pullRequestApi";
 import Timeline from "@/components/Timeline";
+import PullRequest from "@/components/PullRequest";
 export default {
   data() {
     return {
@@ -16,6 +17,7 @@ export default {
     };
   },
   components: {
+    PullRequest,
     Timeline
   },
   created() {

@@ -1,5 +1,5 @@
 <template>
-  <div class="history-tl-container">
+  <div class="container history-tl-container">
     <ul class="tl">
       <template v-for="event in pullRequest.events">
         <Commit
