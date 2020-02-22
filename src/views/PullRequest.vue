@@ -19,11 +19,13 @@ export default {
     Timeline
   },
   created() {
-    pullRequestApi.pullRequest("13362728", "73").then(r => {
-      this.pullRequest = r.data;
-      this.isFetching = false;
-      console.log(this.pullRequest);
-    });
+    pullRequestApi
+      .pullRequest("13362728", this.$route.params.pullRequestId)
+      .then(r => {
+        this.pullRequest = r.data;
+        this.isFetching = false;
+        console.log(this.pullRequest);
+      });
   }
 };
 </script>

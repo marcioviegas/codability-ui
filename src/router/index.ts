@@ -12,7 +12,7 @@ const routes = [
     component: ListPullRequest
   },
   {
-    path: "/pullrequests/{id}",
+    path: "/pullrequests/:pullRequestId",
     name: "PullRequest",
     component: PullRequest
   }
