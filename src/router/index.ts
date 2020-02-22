@@ -1,12 +1,18 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import PullRequest from "@/views/PullRequest.vue";
+import ListPullRequest from "@/views/ListPullRequest.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/project",
+    path: "/",
+    name: "ListPullRequest",
+    component: ListPullRequest
+  },
+  {
+    path: "/pullrequests/{id}",
     name: "PullRequest",
     component: PullRequest
   }

@@ -9,6 +9,9 @@ const pullRequestApi = {
     return axiosClient.get(
       `/projects/${projectId}/pullrequests/${pullRequestId}`
     );
+  },
+  pullRequests: async (projectId: string): Promise<PullRequest[]> => {
+    return axiosClient.get(`/projects/${projectId}/pullrequests`);
   }
 };
 
