@@ -1,15 +1,21 @@
 <template>
-  <div class="">
-    <template v-for="pullRequest in pullRequests">
-      <router-link
-        v-bind:key="pullRequest.id"
-        :to="{ name: 'PullRequest', params: { pullRequestId: pullRequest.id } }"
-      >
-        <PullRequest
-          v-bind:key="pullRequest.id"
-          v-bind:pullRequest="pullRequest"
-      /></router-link>
-    </template>
+  <div class="container">
+    <table class="table is-bordered is-striped is-hoverable is-fullwidth">
+      <thead>
+        <th>Created</th>
+        <th>Author</th>
+        <th>Status</th>
+        <th>Pull Request</th>
+      </thead>
+      <tbody>
+        <template v-for="pullRequest in pullRequests">
+          <PullRequest
+            v-bind:key="pullRequest.id"
+            v-bind:pullRequest="pullRequest"
+          />
+        </template>
+      </tbody>
+    </table>
   </div>
 </template>
 

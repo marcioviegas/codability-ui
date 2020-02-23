@@ -2,7 +2,7 @@
   <section class="section" id="app">
     <div class="container">
       <div class="columns">
-        <div class="column is-3">
+        <div class="column is-2">
           <div>
             <router-link
               :to="{
@@ -12,7 +12,7 @@
             >
           </div>
         </div>
-        <div class="column is-9">
+        <div class="column is-10">
           <router-view />
         </div>
       </div>

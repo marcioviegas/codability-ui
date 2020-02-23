@@ -1,22 +1,29 @@
 <template>
-  <div class="container">
-    <div>
-      <h1>{{ pullRequest.title }}</h1>
-      <p class="timestamp">
-        {{ new Date(pullRequest.date).toLocaleString() }} -
-        {{ pullRequest.distanceFromToday }}
-      </p>
-      <p class="author">
-        {{ pullRequest.author }}
-      </p>
-      <p class="status">
+  <tr>
+    <td class="date">
+      {{ new Date(pullRequest.date).toLocaleString() }} <br />
+      {{ pullRequest.distanceFromToday }} ago
+    </td>
+    <td>{{ pullRequest.author }}</td>
+    <td>
+      <span class="tag is-info">
         {{ pullRequest.status }}
-      </p>
-      <p>
-        {{ pullRequest.lastUpdated }}
-      </p>
-    </div>
-  </div>
+      </span>
+    </td>
+    <td>
+      {{ pullRequest.title }}
+    </td>
+    <td>
+      <router-link
+        v-bind:key="pullRequest.id"
+        :to="{
+          name: 'PullRequest',
+          params: { pullRequestId: pullRequest.id }
+        }"
+        ><span>Info</span>
+      </router-link>
+    </td>
+  </tr>
 </template>
 
 <script>
@@ -30,4 +37,9 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.date {
+  text-align: center;
+  width: 200px;
+}
+</style>
