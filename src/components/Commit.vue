@@ -7,6 +7,9 @@
     <div class="item-description">
       {{ commit.description }}
     </div>
+    <div class="">
+      {{ commit.distanceFromOlderEvent }}
+    </div>
   </li>
 </template>
 

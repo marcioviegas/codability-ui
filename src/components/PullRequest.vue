@@ -3,13 +3,17 @@
     <div>
       <h1>{{ pullRequest.title }}</h1>
       <p class="timestamp">
-        {{ new Date(pullRequest.date).toLocaleString() }}
+        {{ new Date(pullRequest.date).toLocaleString() }} -
+        {{ pullRequest.distanceFromToday }}
       </p>
       <p class="author">
         {{ pullRequest.author }}
       </p>
       <p class="status">
         {{ pullRequest.status }}
+      </p>
+      <p>
+        {{ pullRequest.lastUpdated }}
       </p>
     </div>
   </div>

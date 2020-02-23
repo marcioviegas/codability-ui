@@ -7,6 +7,9 @@
     <div class="item-description">
       {{ firstNote.description }}
     </div>
+    <div class="">
+      {{ firstNote.distanceFromOlderEvent }}
+    </div>
     <ul class="notes tl">
       <li v-for="note in restNotes" v-bind:key="note.date" class="tl-item">
         <div class="timestamp">
